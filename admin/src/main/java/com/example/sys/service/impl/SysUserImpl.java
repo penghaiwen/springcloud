@@ -1,6 +1,7 @@
 package com.example.sys.service.impl;
 
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.example.security.JwtUser;
 import com.example.sys.entity.SysUser;
 import com.example.sys.mapper.SysUserMapper;
 import com.example.sys.service.ISysUser;
@@ -13,7 +14,8 @@ public class SysUserImpl extends ServiceImpl<SysUserMapper, SysUser> implements 
     @Resource
     private SysUserMapper mapper;
     @Override
-    public SysUser getUserByUsername(String userName) {
+    public JwtUser getUserByUsername(String userName) {
+
         return mapper.getUserByUsername(userName);
     }
 

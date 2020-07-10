@@ -1,0 +1,24 @@
+server:
+  port: 8500
+
+spring:
+  application:
+    name: oauth
+  redis:
+    host: 120.79.228.65
+    port: 6379
+    password: czd888
+    database: 1
+
+eureka:
+  instance:
+    instance-id:  ${spring.application.name}
+  client:
+    fetch-registry: true #要不要去注册中心获取其他服务的地址
+    register-with-eureka: true #自己就是注册中心，不用注册自己
+    service-url:
+      defaultZone: http://localhost:8000/eureka/ #Eureka地址
+
+
+
+

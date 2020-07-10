@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: gateway
+
   cloud:
     gateway:
       discovery:
@@ -20,6 +21,12 @@ spring:
           uri: http://localhost:8200
           predicates:
             - Path=/order/**
+          filters:
+            - StripPrefix=1
+        - id: api-oauth-route
+          uri: http://localhost:8500
+          predicates:
+            - Path=/oauth/**
           filters:
             - StripPrefix=1
 

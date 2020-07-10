@@ -4,6 +4,7 @@ server:
 spring:
   application:
     name: gateway
+
   cloud:
     gateway:
       discovery:
@@ -22,6 +23,7 @@ spring:
             - Path=/order/**
           filters:
             - StripPrefix=1
+
 
 
 eureka:

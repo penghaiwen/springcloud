@@ -1,5 +1,6 @@
 package com.example.sys.controller;
 
+import com.example.security.JwtUser;
 import com.example.sys.entity.SysUser;
 import com.example.sys.service.ISysUser;
 import com.example.sys.service.OrderService;
@@ -24,8 +25,11 @@ public class TestController {
     public Map<String,Object> getOrderDetails(@PathVariable("id") Long id){
         System.out.println("调用admin服务");
         Map<String,Object> map = orderService.getOrderDetailsById(id);
-        SysUser admin = sysUser.getUserByUsername("admin");
-        map.put("user",admin);
         return map;
+    }
+
+    @GetMapping("get/user")
+    public JwtUser getOrderDetails( ){
+        return sysUser.getUserByUsername("admin");
     }
 }
